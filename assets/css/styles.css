@@ -251,8 +251,8 @@ section .about-me {
 }
 
 .project-image {
-  width: 20%;
-  height: 25%;
+  width: 40%;
+  height: 45%;
 }
 
 .projects-container {
@@ -702,8 +702,8 @@ footer {
 
   .project-image {
     margin: 3rem auto;
-    width: 20%;
-    height: 10%;
+    width: 40%;
+    height: 30%;
   }
 
   .projects-container {
