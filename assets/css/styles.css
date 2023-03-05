@@ -293,6 +293,13 @@ section .about-me {
 .project-details {
   margin-bottom: var(--bottom-margin);
 }
+
+.project-bold {
+  margin: 0.25rem;
+  text-align: center;
+  font-weight: 1200;
+
+}
 /* End of Projects Sections */
 
 /* Contacts Section */
