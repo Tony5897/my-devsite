@@ -75,7 +75,7 @@ section {
 /* Navbar */
 nav {
   background-color: #fff;
-  position: sticky;
+  position: fixed;
   /* height: 10rem; */
   width: 100%;
   top: 0;
@@ -250,13 +250,9 @@ section .about-me {
   margin: 4rem 1rem 7rem 1rem;
 }
 
-span.bold-desc {
-  font-weight: bolder;
-}
-
 .project-image {
-  width: 40%;
-  height: 45%;
+  width: 60%;
+  height: 65%;
 }
 
 .projects-container {
@@ -273,6 +269,11 @@ span.bold-desc {
 
 .project-title {
   margin: 1rem;
+}
+
+.project-title a:hover {
+  text-decoration: underline;
+  color: #000;
 }
 
 .project-container {
@@ -311,7 +312,7 @@ span.bold-desc {
   margin: 1rem auto;
   padding: 1.25rem;
   border-radius: 5px;
-  box-shadow: 0 3px 10px var(--secondary-shadow);
+  box-shadow: 0 3px 10px firebrick;
   font-size: 1.37rem;
 }
 
@@ -357,7 +358,7 @@ span.bold-desc {
 
 .submit-btn:hover {
   /* background-color: var(--secondary-color); */
-  background-color: firebrick;
+  background-color: #000;
   color: #fff;
   border: 2px solid var(--primary-color);
   cursor: pointer;
@@ -375,15 +376,19 @@ span.bold-desc {
   text-align: center;
 }
 
-/* .social a:hover {
-  box-shadow: 1px 0.25px 0.25px 0 #000;
-  padding: 0.5rem 0.5rem;
+.social a:hover {
+  background-color: transparent;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px 5px var(--primary-shadow);
+  padding: 0.25rem 0.25rem;
   margin: 0.25rem;
-} */
+}
 
 .socicon {
   width: 4rem;
   height: 5rem;
+  padding: 0.25rem 0.25rem;
+  margin: 0.25rem;
 }
 
 /* End of Social Accts */
@@ -420,11 +425,44 @@ footer {
 }
 
 .project-card {
-  background-color: #fff;
+  background-image: url("assets/images/ailogotwo.png");
+  background-color: transparent;
+  color: #000;
   border-radius: 5px;
   box-shadow: 0 1px 5px var(--primary-shadow);
   padding: 20px;
   margin: 15px;
+}
+
+.project-card:hover {
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px 5px var(--primary-shadow);
+  padding: 20px;
+  margin: 15px;
+}
+
+#openai-project:hover {
+  background-color: transparent;
+  align-items: center;
+  color: #000;
+  border-radius: 7px;
+  box-shadow: 5px 5px 5px 5px var(--primary-shadow);
+  padding: 20px;
+  margin: 15px;
+}
+
+/* #openai-project img {
+  transition: all;
+  transform: translateY(100%);
+  opacity: 0;
+} */
+
+#openai-project img:hover {
+  padding: -5rem;
+  margin: -1rem;
+  transition: all;
+  transform: rotateZ(180deg);
+  transition: transform 0.5s ease-in-out;
 }
 /* End of Utilities */
 
@@ -710,8 +748,8 @@ footer {
 
   .project-image {
     margin: 3rem auto;
-    width: 40%;
-    height: 30%;
+    width: 50%;
+    height: 40%;
   }
 
   .projects-container {
