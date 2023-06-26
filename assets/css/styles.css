@@ -97,11 +97,25 @@ nav h1 {
 nav a {
   color: var(--primary-color);
   transition: var(--transition);
+  text-decoration: none;
+  /* letter-spacing: 15px; */
 }
 
-nav a:hover {
+nav a:after {
+  background-color: #000;
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -10px;
+  transition: 0.75s;
+}
+
+nav a:hover:after {
   background-color: transparent;
   color: firebrick;
+  width: 100%;
   /* border-bottom: 2px solid var(--secondary-color); */
 }
 
@@ -271,9 +285,22 @@ section .about-me {
   margin: 1rem;
 }
 
-.project-title a:hover {
-  text-decoration: underline;
-  color: #000;
+.project-title a:after {
+background-color: #000;
+content: "";
+position: absolute;
+height: 3px;
+width: 0;
+left: 0;
+bottom: -10px;
+transition: 0.75s;
+}
+
+.project-title a:hover:after {
+  background-color: transparent;
+  /* text-decoration: underline; */
+  color: firebrick;
+  width: 100%;
 }
 
 .project-container {
