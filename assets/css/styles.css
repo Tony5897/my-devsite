@@ -265,8 +265,8 @@ section .about-me {
 }
 
 .project-image {
-  width: 60%;
-  height: 65%;
+  width: 85%;
+  height: 90%;
 }
 
 .projects-container {
@@ -497,6 +497,15 @@ footer {
   transition: all;
   transform: rotateZ(180deg);
   transition: transform 0.5s ease-in-out;
+}
+
+#alp-project img:hover {
+  padding: -5rem;
+  margin: 1rem;
+  transition: all;
+  transform: scale(1.25, 1.25);
+  /* transform: rotateZ(180deg); */
+  transition: transform 0.25s ease-in-out;
 }
 /* End of Utilities */
 
