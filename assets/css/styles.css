@@ -473,16 +473,6 @@ footer {
   margin: 15px;
 }
 
-.project-card {
-  background-image: url("assets/images/alpimg-edit.png");
-  background-color: transparent;
-  color: #000;
-  border-radius: 5px;
-  box-shadow: 0 1px 5px var(--primary-shadow);
-  padding: 20px;
-  margin: 15px;
-}
-
 .project-card:hover {
   border-radius: 5px;
   box-shadow: 5px 5px 5px 5px var(--primary-shadow);
