@@ -265,8 +265,8 @@ section .about-me {
 }
 
 .project-image {
-  width: 85%;
-  height: 90%;
+  width: 80%;
+  height: 85%;
 }
 
 .projects-container {
@@ -282,7 +282,7 @@ section .about-me {
 }
 
 .project-title {
-  margin: 1rem;
+  margin: 2rem 0rem 2rem 0rem;
 }
 
 .project-title a:after {
@@ -317,12 +317,17 @@ transition: 0.75s;
   margin: 1rem;
 }
 
-.project-details {
-  margin-bottom: var(--bottom-margin);
+.project-details  {
+  margin: 0rem 0rem 1rem 0rem;
 }
 
+/* .project-details-alp {
+  margin: 1.12rem 0rem 2rem 0rem;
+  padding: 0.75rem 0rem 1rem 0rem;
+} */
+
 .project-bold {
-  margin: 0.25rem;
+  margin: 0.25rem 0rem 1rem 0rem;
   text-align: center;
   font-weight: 1200;
 
@@ -485,6 +490,16 @@ footer {
   margin: 15px;
 }
 
+#alp-project:hover {
+  background-color: transparent;
+  align-items: center;
+  color: #000;
+  border-radius: 7px;
+  box-shadow: 5px 5px 5px 5px var(--primary-shadow);
+  padding: 20px;
+  margin: 15px;
+}
+
 /* #openai-project img {
   transition: all;
   transform: translateY(100%);
@@ -501,7 +516,7 @@ footer {
 
 #alp-project img:hover {
   padding: -5rem;
-  margin: 1rem;
+  margin: -1rem;
   transition: all;
   transform: scale(1.25, 1.25);
   /* transform: rotateZ(180deg); */
@@ -790,7 +805,7 @@ footer {
   }
 
   .project-image {
-    margin: 3rem auto;
+    margin: 4rem auto;
     width: 50%;
     height: 40%;
   }
