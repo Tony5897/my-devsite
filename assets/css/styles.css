@@ -167,11 +167,6 @@ nav ul li {
 }
 /* Navbar Ends */
 
-hr.verticle {
-  margin: 11rem 24rem 8rem;
-  box-shadow: 0.25px 0.25px 0.25px var(--secondary-shadow);
-}
-
 /* Hero Section */
 .hero {
   display: flex;
@@ -212,8 +207,8 @@ section .about-me {
   background-color: var(--bg-color);
   margin-bottom: 5rem;
   width: 47.5rem;
-  /* padding: 1rem 1rem; */
-  /* text-align: center;  */
+  padding: 1rem 1rem; 
+  text-align: center; 
 }
 
 .about-me h2 {
@@ -224,8 +219,8 @@ section .about-me {
 .about-me p {
   font-size: 1.75rem;
   line-height: var(--line-height);
-  margin-bottom: 7rem;
-  padding: 2rem 8rem;
+  margin: 0rem -2.6rem;
+  padding: 2rem 2rem;
   text-align: center;
 }
 
@@ -236,7 +231,7 @@ section .about-me {
   max-width: 68.75rem;
   margin: auto;
   text-align: center;
-  margin-top: 2.5rem;
+  /* margin-top: 2.5rem; */
 }
 
 .skill-header {
@@ -748,32 +743,13 @@ footer {
     max-width: 100%;
   }
 
-  hr.verticle {
-    border: 0.1px solid #000;
-    margin: 3rem 2.75rem 4rem;
-    box-shadow: 0.25px 0.25px 0.25px var(--secondary-shadow);
-  }
-
   .about-me p {
     font-size: 1.75rem;
     font-weight: normal;
     line-height: 2.25rem;
     margin-bottom: 3rem;
-    padding: 2rem 1.8rem;
+    /* padding: 2rem 1.8rem; */
     text-align: center;
-  }
-
-  .bio-title {
-    font-size: 3rem;
-    width: 26rem;
-    text-align: center;
-    position: relative;
-    left: 0.01rem;
-    padding: 0.5rem 1.25rem;
-  }
-
-  .bio-title h2 {
-    font-size: 1.75rem;
   }
 
   .skill-header {
@@ -902,11 +878,6 @@ footer {
 
     .hero {
       text-align: center;
-    }
-
-    hr.verticle {
-      margin: 6rem 15rem 6rem;
-      box-shadow: 0.25px 0.25px 0.25px var(--secondary-shadow);
     }
 
     .hero img {
