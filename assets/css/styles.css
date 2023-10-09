@@ -258,8 +258,10 @@ section .about-me {
 }
 
 .project-image {
-  width: 80%;
-  height: 85%;
+  width:360px;
+  height:360px;
+  /* width: 80%; */
+  /* height: 85%; */
 }
 
 .projects-container {
@@ -457,41 +459,41 @@ footer {
 }
 
 .project-card {
-  background-image: url("assets/images/ailogotwo.png");
+  background-image: url("assets/images/cta1-pro1.jpg");
   background-color: transparent;
   color: #000;
-  border-radius: 5px;
-  box-shadow: 0 1px 5px var(--primary-shadow);
+  /* border-radius: 5px; */
+  /* box-shadow: 0 1px 5px var(--primary-shadow); */
   padding: 20px;
   margin: 15px;
 }
 
-.project-card:hover {
+/* .project-card:hover {
   border-radius: 5px;
   box-shadow: 5px 5px 5px 5px var(--primary-shadow);
   padding: 20px;
   margin: 15px;
-}
+} */
 
-#openai-project:hover {
+/* #openai-project:hover {
   background-color: transparent;
   align-items: center;
   color: #000;
-  border-radius: 7px;
-  box-shadow: 5px 5px 5px 5px var(--primary-shadow);
-  padding: 20px;
-  margin: 15px;
-}
+  /* border-radius: 7px; */
+  /* box-shadow: 5px 5px 5px 5px var(--primary-shadow); */
+  /* padding: 20px; */
+  /* margin: 15px; 
+} */
 
-#alp-project:hover {
+/* #alp-project:hover {
   background-color: transparent;
   align-items: center;
-  color: #000;
-  border-radius: 7px;
-  box-shadow: 5px 5px 5px 5px var(--primary-shadow);
-  padding: 20px;
-  margin: 15px;
-}
+  color: #000; */
+  /* border-radius: 7px; */
+  /* box-shadow: 5px 5px 5px 5px var(--primary-shadow); */
+  /* padding: 20px; */
+  /* margin: 15px; 
+}/*
 
 /* #openai-project img {
   transition: all;
@@ -499,22 +501,22 @@ footer {
   opacity: 0;
 } */
 
-#openai-project img:hover {
+/* #openai-project img:hover {
   padding: -5rem;
   margin: -1rem;
   transition: all;
   transform: rotateZ(180deg);
   transition: transform 0.5s ease-in-out;
-}
+} */
 
-#alp-project img:hover {
+/* #alp-project img:hover {
   padding: -5rem;
   margin: -1rem;
   transition: all;
   transform: scale(1.25, 1.25);
   transition: transform 0.25s ease-in-out;
-}
-/* End of Utilities */
+} */
+/* End of Utilities /*
 
 
 
@@ -779,8 +781,8 @@ footer {
 
   .project-image {
     margin: 4rem auto;
-    width: 50%;
-    height: 40%;
+    width: 90%;
+    height: 80%;
   }
 
   .projects-container {
