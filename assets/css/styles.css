@@ -110,17 +110,12 @@ nav a:after {
   transition: 0.75s;
 }
 
-nav a:hover:after {
+nav ul a:hover:after {
   background-color: transparent;
   color: firebrick;
   width: 100%;
   /* border-bottom: 2px solid var(--secondary-color); */
 }
-
-/* nav ul.navigation {
-  background-color: #fff;
-} */
-
 
 nav ul {
   display: flex;
@@ -316,11 +311,6 @@ transition: 0.75s;
   margin: 0rem 0rem 1rem 0rem;
 }
 
-/* .project-details-alp {
-  margin: 1.12rem 0rem 2rem 0rem;
-  padding: 0.75rem 0rem 1rem 0rem;
-} */
-
 .project-bold {
   margin: 0.25rem 0rem 1rem 0rem;
   text-align: center;
@@ -401,21 +391,14 @@ transition: 0.75s;
 /* End of Contacts Section */
 
 /* Social Accts */
+
 .social {
   display: flex;
   flex-direction: column;
   position: fixed;
-  right: 91.5%;
-  bottom: 34.5%;
+  right: 90%;
+  bottom: 47.5%;
   text-align: center;
-}
-
-.social a:hover {
-  background-color: transparent;
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px 5px var(--primary-shadow);
-  padding: 0.25rem 0.25rem;
-  margin: 0.25rem;
 }
 
 .socicon {
@@ -441,9 +424,15 @@ transition: 0.75s;
 }
 
 /* Footer Section */
+
+hr.verticle {
+  margin: 1rem 0;
+  border-top: 0.75px solid #000000;
+}
+
 footer {
   background-color: var(--bg-color);
-  padding: 1.25rem;
+  padding: 2rem;
   text-align: center;
   margin: 2rem 0 0;
 }
@@ -579,11 +568,6 @@ footer {
     position: relative;
     left: 44%;
     top: 10%;
-  }
-
-  hr.verticle {
-    margin: 11rem 14rem 8rem;
-    box-shadow: 0.25px 0.25px 0.25px var(--secondary-shadow);
   }
 
   .hero {
@@ -823,7 +807,7 @@ footer {
     flex-direction: column;
     position: absolute;
     right: 88%;
-    bottom: 15%;
+    bottom: 22%;
     text-align: center;
   }
 
