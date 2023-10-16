@@ -185,14 +185,15 @@ nav ul li {
   font-family: var(--font-family);
   font-size: 3.5rem;
   font-weight: bold;
+  line-height: normal;
   width: 37rem;
   padding: 0.625rem;
 }
 
 .bio h2 {
-  font-size: 2rem;
+  color: #717171;
+  font-size: 1.9rem;
   font-weight: normal;
-  padding-left: 1.70%;
 }
 
 /* End of Hero Section */
@@ -212,8 +213,9 @@ section .about-me {
 }
 
 .about-me p {
-  font-size: 1.75rem;
-  line-height: var(--line-height);
+  color: #6C6C6C;
+  font-size: 1.47rem;
+  list-style: normal;
   margin: 0rem -2.6rem;
   padding: 2rem 2rem;
   text-align: center;
