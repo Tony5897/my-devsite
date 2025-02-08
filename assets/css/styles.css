@@ -55,6 +55,8 @@ section {
   place-items: center;
   align-items: center;
   min-height: 100vh;
+  padding: 2.5rem;
+  
 }
 
 .hidden {
@@ -76,7 +78,7 @@ section {
 nav {
   background-color: #fff;
   position: fixed;
-  /* height: 10rem; */
+  height: auto;
   width: 100%;
   top: 0;
   left: 0;
@@ -88,19 +90,13 @@ nav {
   box-shadow: 0.5px 0.5px 0.5px rgba(0, 0, 0, 0.1);
 }
 
-nav h1 {
-  color: var(--primary-color);
-}
-
-nav a {
+nav h1, nav a {
   color: var(--primary-color);
   transition: var(--transition);
-  text-decoration: none;
-  /* letter-spacing: 15px; */
 }
 
 nav a:after {
-  background-color: #000;
+  background-color: var(--background-color);
   content: "";
   position: absolute;
   height: 3px;
@@ -125,7 +121,6 @@ nav ul {
 }
 
 nav ul li {
-  font-family: "Montserrat", sans-serif;
   font-size: 1.5rem;
   font-weight: var(--normal-font);
   text-transform: uppercase;
@@ -135,14 +130,13 @@ nav ul li {
   background-color: #000;
 } */
 
-.nav-icon {
+.nav-icon, .burger-menu {
   display: none;
 }
 
 .logo {
-  color: #000;
+  color: var(--primary-color);
   font-size: 5.5rem;
-  font-family: var(--font-family);
   font-weight: normal;
   text-transform: uppercase;
 }
@@ -159,30 +153,41 @@ nav ul li {
   cursor: pointer;
   padding: 1rem 1rem 0 0;
   display: none;
-}
+} 
 /* Navbar Ends */
 
 /* Hero Section */
 .hero {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  height: auto;
-  max-width: 68.75rem;
-  /* margin: 0 27.5rem; */
-  margin: auto;
-  text-align: center;
+  gap: 6rem;
+  /* height: 100vh; */
+  /* width: 100%; */
+  margin: 0 27.5rem;
+  /* margin: auto; */
+  /* padding: 1rem;  */
+ /* text-align: center; */
+  /* overflow: hidden; */
 }
 
 .hero img {
-  height: 47.75rem;
-  width: 40.75rem;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-top: 4rem;
 }
 
 /*Text on the right of the portrait image */
+.bio  {
+  max-width: 600px;
+  text-align: left;
+}
+
 .bio-title {
-  font-family: var(--font-family);
   font-size: 3.5rem;
   font-weight: bold;
   line-height: normal;
@@ -200,10 +205,10 @@ nav ul li {
 
 /* More About Me Section */
 section .about-me {
-  background-color: var(--bg-color);
+  background-color: var(--background-color);
   margin-bottom: 5rem;
   width: 47.5rem;
-  padding: 1rem 1rem; 
+  padding: 1rem; 
   text-align: center; 
 }
 
@@ -216,8 +221,8 @@ section .about-me {
   color: #6C6C6C;
   font-size: 1.47rem;
   list-style: normal;
-  margin: 0rem -2.6rem;
-  padding: 2rem 2rem;
+  margin: 0 -2.6rem;
+  padding: 2rem;
   text-align: center;
 }
 
@@ -249,7 +254,7 @@ section .about-me {
 
 /* Projects Section */
 .projects {
-  background-color: var(--bg-color);
+  background-color: var(--background-color);
   padding: 32px 0;
   margin: 4rem 1rem 7rem 1rem;
 }
@@ -274,7 +279,7 @@ section .about-me {
 }
 
 .project-title {
-  margin: 2.25rem 0rem 2rem 0rem;
+  margin: 2.25rem 0;
 }
 
 .project-title a:after {
@@ -305,20 +310,20 @@ transition: 0.75s;
   padding: 0.4rem;
 }
 
-.project-name {
+/* .project-name {
   margin: 1rem;
-}
+} */
 
-.project-details  {
+/* .project-details  {
   margin: 0rem 0rem 1rem 0rem;
-}
+} */
 
-.project-bold {
+/* .project-bold {
   margin: 0.25rem 0rem 1rem 0rem;
   text-align: center;
   font-weight: 1200;
 
-}
+} */
 /* End of Projects Sections */
 
 /* Contacts Section */
@@ -513,7 +518,7 @@ footer {
 
 
 /* Media Queries for Responsive Design */
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1200px) {
   nav {
     color: #000;
     font-size: 2.75rem;
@@ -711,11 +716,11 @@ footer {
     align-items: center;
     text-align: center;
     justify-content: center;
-    margin-top: 1.40rem;
+    margin-top: 2.40rem;
     flex-direction: column;
     gap: 0;
     overflow: hidden;
-    /* height: 200px; */
+    /* height: auto; */
   }
 
   .hero h2 {
@@ -836,7 +841,39 @@ footer {
   }
 
 }
-  @media screen and (min-width: 360px) and (max-width: 832px) and (orientation: landscape) {
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 5rem 1rem 2rem;
+  }
+
+  .bio {
+    text-align: center;
+
+@media (max-width: 768px) {
+  .bio-title  {
+    font-size: 2rem;
+  }
+
+  .bio h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .bio-title {
+    font-size: 1.75rem;
+  }
+}
+
+
+
+
+
+  /* @media screen and (min-width: 360px) and (max-width: 832px) and (orientation: landscape) {
     nav ul {
       flex-direction: column;
       gap: 1rem;
@@ -908,5 +945,5 @@ footer {
       width: 1.85rem;
       height: 2rem;
     }
-  }
+  } */
 
