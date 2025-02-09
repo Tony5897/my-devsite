@@ -4,394 +4,99 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- CSS Styles -->
-    <link
-      rel="stylesheet"
-      href="assets/css/styles.css"
-      type="text/css"
-      media="all"
-    />
-    <!-- Favicons -->
-    <link rel="icon" sizes="180x180" href="assets/icons" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/icons/icons8-trademark-16.png"
-    />
-    <!-- Additional CSS Styling -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="icon" href="assets/icons/icons8-trademark-16.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="sylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <title>Tony Martinez | Designer & Developer</title>
   </head>
-
-  <section>
-    <!-- Navbar -->
+  <body>
     <nav>
       <h1 class="logo"><a href="/">TONY M.</a></h1>
       <ul class="navigation">
-        <li><a href="#about" class="nav-link hidden">// About </a></li>
-        <li><a href="#skills" class="nav-link hidden">// Skills </a></li>
-        <li><a href="#projects" class="nav-link hidden">// Projects </a></li>
-        <li><a href="#contact" class="nav-link hidden">// Contact </a></li>
-        <li>
-          <a href="https://www.linkedin.com/in/tonymart/" target="_blank"
-            ><img
-              src="assets/icons/icons8-linkedin-64.png"
-              alt="LinkedIn"
-              loading="lazy"
-              class="nav-icon hidden"
-          /></a>
-        </li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
       <button class="burger-menu" id="burger-menu">
-        <ion-icon class="bars" name="menu-outline"></ion-icon>
+        <ion-icon name="menu-outline"></ion-icon>
       </button>
     </nav>
-    <!-- Hero Section -->
-    <section class="hero hidden" id="about">
-      <img
-        src="assets/images/selfport2025.jpg"
-        alt="Tony Martinez"
-        loading="lazy"
-        class="hero-img hidden"
-      />
+    <section class="hero" id="about">
+      <img src="assets/images/selfport2025.jpg" alt="Tony Martinez" class="hero-img" loading="lazy" />
       <div class="bio animate__animated animate__shakeX">
-        <h1 class="bio-title hidden">Hi, I'm Tony.</h1>
+        <h1 class="bio-title">Hi, I'm Tony.</h1>
         <h2>Designer & Developer</h2>
       </div>
     </section>
 
-    <section class="spacers" id="area">
-    <img src="assets/images/portspacer.jpg" alt="spacer" loading="lazy" class="symbols" />
+    <section class="spacer">
+      <img src="assets/images/portspacer.jpg" alt="Section Divider" class="section-divider" loading="lazy" />
     </section>
-      <!-- Projects Section -->
-      <section class="projects hidden" id="projects">
-        <h2 class="projects-name hidden">Projects</h2>
-        <div class="projects-container">
-          <div class="project-container project-card" id="openai-project">
-            <a href="https://chapgpt-converse-e4wvkw2ko-creativeartsone-gmailcom.vercel.app/" target="_blank" alt="chatgpt-clone" class="project-image">
-            <img
-              src="assets/images/cta1-pro1.jpg"
-              alt="openai image"
-              loading="lazy"
-              class="project-image hidden"
-            /></a>
-            <h2 class="project-title hidden"><a href="https://chapgpt-converse-e4wvkw2ko-creativeartsone-gmailcom.vercel.app/" target="_blank" alt="chatgpt-clone"></a></h2>
-          
-          </div>
-  
-          <div class="project-container project-card" id="alp-project">
-            <a href="assets/images/alpenrose-proedit3.jpg" target="_blank" alt="email-designs" class="project-image">
-            <img
-              src="assets/images/cta2-pro2.jpg"
-              alt="alpenrose logo"
-              loading="lazy"
-              class="project-image hidden"
-            /></a>
-            <h2 class="project-title hidden"><a href="assets/images/alpenrose-proedit3.jpg" target="_blank" alt="email-designs"></a></h2>
-            <a href="#" target="_blank" class="project-link"></a>
-          </div>
-  
-          <div class="project-container project-card">
-            <a href="assets/images/portredes.png" target="_blank" alt="web-design" class="project-image">
-            <img
-              src="assets/images/cta-pro3.jpg"
-              alt="figma-image"
-              loading="lazy"
-              class="project image"
-            /></a>
-            <h2 class="project-title"><a href="assets/images/portredes.png" target="_blank" alt="web-design"></a></h2>
-            <a href="#" target="_blank" class="project-link"></a>
-          </div>
+
+    <section class="projects" id="projects">
+      <h2 class="projects-name">Projects</h2>
+      <div class="projects-container">
+        <div class="project-card">
+          <a href="https://chapgpt-converse-e4wvkw2ko-creativeartsone-gmailcom.vercel.app/" target="_blank">
+            <img src="assets/images/cta1-pro1.jpg" alt="ChatGPT Clone" class="project-image" loading="lazy" />
+          </a>
         </div>
-      </section>
-      <!-- End of Projects Section -->
-
-    <section class="spacers" id="area">
-    <!-- <hr class="verticle hidden" /> -->
-    <img src="assets/images/portspacer.jpg" alt="spacer" loading="lazy" class="symbols" />
+        <div class="project-card">
+          <a href="assets/images/alpenrose-proedit3.jpg" target="_blank">
+            <img src="assets/images/cta2-pro2.jpg" alt="Alpenrose Logo" class="project-image" loading="lazy" />
+          </a>
+        </div>
+        <div class="project-card">
+          <a href="assets/images/portredes.png" target="_blank">
+            <img src="assets/images/cta-pro3.jpg" alt="Figma Image" class="project-image" loading="lazy" />
+          </a>
+        </div>
+      </div>
     </section>
 
-    <!-- More about -->
+    <section class="spacer">
+      <img src="assets/images/portspacer.jpg" alt="Section Divider" class="section-divider" loading="lazy" />
+    </section>
+
     <section class="about-me">
-      <h2 class="hidden">About Me</h2>
-      <p class="bio-font hidden">
-        My name is Tony Martinez.
-        I am a designer and developer based in Portland, OR focused on building
-        unique, problem-solving web and mobile applications with a deep interest
-        in creating eye-catching digital experiences.
+      <h2>About Me</h2>
+      <p>
+        I'm Tony Martinez, a designer and developer based in Portland, OR. I focus on building unique, problem-solving web and mobile applications and creating eye-catching digital experiences.
       </p>
     </section>
 
-    <section class="spacers" id="area">
-    <!-- <hr class="verticle hidden" /> -->
-    <img src="assets/images/portspacer.jpg" alt="spacer" loading="lazy" class="symbols" />
+    <section class="spacer">
+      <img src="assets/images/portspacer.jpg" alt="Section Divider" class="section-divider" loading="lazy" />
     </section>
 
-    <!-- Skills Section -->
-    <!-- lazy attribute speeds up load time -->
-    <section class="skills hidden" id="skills">
+    <section class="skills" id="skills">
       <h2 class="skill-header">Skills</h2>
-
-      <div class="skills-wrapper hidden">
-        <div class="first-set animate__animated animate__pulse">
-          <img
-            src="assets/icons/icons8-javascript-150.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card hidden"
-          />
-
-          <img
-            src="assets/icons/icons8-python-150.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card"
-          />
-
-          <img
-            src="assets/icons/icons8-c++-150.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card hidden"
-          />
-          <img
-            src="assets/icons/icons8-react-200.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card"
-          />
-          <img
-            src="assets/icons/icons8-html-5.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card hidden"
-          />
-        </div>
-
-        <!-- Below is the second set of icons -->
-
-        <div class="second-set animate__animated animate__pulse hidden">
-          <img
-            src="assets/icons/icons8-swift-150.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card"
-          />
-          <img
-            src="assets/icons/icons8-agile-192.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card hidden"
-          />
-          <img
-            src="assets/icons/icons8-nodejs-120.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card"
-          />
-          <img
-            src="assets/icons/icons8-git-150.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card hidden"
-          />
-          <img
-            src="assets/icons/icons8-css-150.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card"
-          />
-        </div>
-
-        <!-- Below is the third set of icons  -->
-
-        <div class="third-set animate__animated animate__pulse">
-          <img
-            src="assets/icons/icons8-figma-150.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card hidden"
-          />
-          <img
-            src="assets/icons/icons8-adobe-xd-150.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card"
-          />
-          <img
-            src="assets/icons/icons8-visual-studio-150.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card hidden"
-          />
-          <img
-            src="assets/icons/icons8-adobe-150.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card"
-          />
-          <img
-            src="assets/icons/icons8-wordpress-150.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card hidden"
-          />
-        </div>
-
-        <!-- Below is the fourth set of icons  -->
-
-        <div class="fourth-set animate__animated animate__pulse">
-          <img
-            src="assets/icons/icons8-next.js-150.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card hidden"
-          />
-          <img
-            src="assets/icons/icons8-typescript-150.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card"
-          />
-          <img
-            src="assets/icons/icons8-tailwind-css-150.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card hidden"
-          />
-          <img
-            src="assets/icons/icons8-firebase-150.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card"
-          />
-          <img
-            src="assets/icons/icons8-google-cloud-150.png"
-            alt=""
-            loading="lazy"
-            class="icon icon-card hidden"
-          />
-        </div>
+      <div class="skills-wrapper">
+        <img src="assets/icons/icons8-javascript-150.png" alt="JavaScript" class="icon" loading="lazy" />
+        <img src="assets/icons/icons8-python-150.png" alt="Python" class="icon" loading="lazy" />
+        <img src="assets/icons/icons8-react-200.png" alt="React" class="icon" loading="lazy" />
+        <img src="assets/icons/icons8-html-5.png" alt="HTML5" class="icon" loading="lazy" />
       </div>
     </section>
-    <!-- Skills Section Ends -->
 
-    <!-- Contacts -->
+    <section class="spacer">
+      <img src="assets/images/portspacer.jpg" alt="Section Divider" class="section-divider" loading="lazy" />
+    </section>
+
     <section class="contact" id="contact">
-      <h2 class="hidden">Get In Touch</h2>
-      <div class="contact-form-container hidden">
-        <div class="contact-form">
-          <form
-            action="https://getform.io/f/e53ee87c-bbd2-47e0-ae3a-9ae9dcf4b0fb"
-            method="POST"
-          >
-            <div class="form-control">
-              <label for="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="sender-name"
-                placeholder="Enter Your Name"
-                class="input-field"
-                required
-              />
-            </div>
-            <div class="form-control">
-              <label for="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="user-email"
-                placeholder="Enter Your Email"
-                class="input-field"
-                required
-              />
-            </div>
-            <div class="form-control">
-              <label for="message">Message</label>
-              <textarea
-                id="message"
-                cols="60"
-                rows="15"
-                placeholder=""
-                name="message"
-                class="input-field"
-                required
-              ></textarea>
-            </div>
-            <input
-              type="submit"
-              value="Submit"
-              id="submit-btn"
-              class="submit-btn"
-            />
-          </form>
-        </div>
-      </div>
+      <h2>Get In Touch</h2>
     </section>
-    <!-- End of Contacts Section -->
 
-    <!-- Sidebar-Socials -->
-    <div class="social">
-        <a href="https://www.linkedin.com/in/tonymart/" target="_blank"
-          ><img
-          src="assets/icons/icons8-linkedin-96.png"
-          alt="linkedin logo"
-          loading="lazy"
-          class="social-icon"
-          /></a>
-
-      <a href="https://github.com/Tony5897" target="_blank"
-        ><img
-          src="assets/icons/icons8-github-96.png"
-          alt="github logo"
-          loading="lazy"
-          class="social-icon"
-      /></a>
-    </div>
-
-    <!-- Scroll to Top -->
-    <i class="scroll-up" id="scroll-up">
-      <img
-        src="assets/icons/icons8-up-squared-24.png"
-        class="socicon up-arrow"
-        alt="scroll-up"
-    /></i>
-
-    <!-- Footer -->
     <footer>
-      <hr class="verticle" />
-      <p class="copy">&copy; Tony Martinez 2025</p>
-      <p class="copy">
-        Designed & Developed by
-        <a href="https://www.linkedin.com/in/tonymart/" target="_blank"
-          >Tony Martinez</a
-        >
-      </p>
+      <p>&copy; Tony Martinez 2025 | <a href="https://www.linkedin.com/in/tonymart/" target="_blank">LinkedIn</a></p>
     </footer>
-    <!-- End of Footer Section -->
 
-    <!-- Website Scripts -->
-    <script defer src="assets/js/app.js"></script>
-
-    <!-- Icons Script -->
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-    ></script>
+    <script src="assets/js/app.js" defer></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
