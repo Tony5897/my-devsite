@@ -87,16 +87,42 @@ if (scrollUp) {
 const darkModeToggle = document.querySelector('.dark-mode-toggle');
 const body = document.body;
 
-if (darkModeToggle) {
-  // Apply saved dark mode preference on page load
-  const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
-  if (isDarkMode) {
-    body.classList.add('dark-mode');
-  }
+// Replace old toggle with inline theme options in nav
+const themeToggleGroup = document.querySelector('.theme-toggle');
+const themeButtons = document.querySelectorAll('.theme-option');
 
-  // Toggle dark mode and save preference
-  darkModeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    localStorage.setItem('darkMode', body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
+// Apply saved theme or system on load
+const savedTheme = localStorage.getItem('theme') || 'system';
+applyTheme(savedTheme);
+updateThemeAria(savedTheme);
+
+themeButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const value = btn.getAttribute('data-theme');
+    applyTheme(value);
+    localStorage.setItem('theme', value);
+    updateThemeAria(value);
   });
+});
+
+function updateThemeAria(active) {
+  themeButtons.forEach((btn) => {
+    const value = btn.getAttribute('data-theme');
+    btn.setAttribute('aria-checked', String(value === active));
+  });
+}
+
+function applyTheme(value) {
+  // Remove explicit class first
+  body.classList.remove('dark-mode');
+  // system = follow prefers-color-scheme, light = remove dark, dark = add dark
+  if (value === 'dark') {
+    body.classList.add('dark-mode');
+  } else if (value === 'system') {
+    // Evaluate current system preference
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDark) {
+      body.classList.add('dark-mode');
+    }
+  }
 }
