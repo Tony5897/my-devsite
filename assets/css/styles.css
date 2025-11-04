@@ -5,6 +5,8 @@
   --secondary-color: #ff7235;
   --background-color: #fff;
   --transition: 0.3s ease-in-out;
+  --primary-shadow: rgba(0, 0, 0, 0.1);
+  --secondary-shadow: rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -71,6 +73,8 @@ nav ul {
   background: none;
   border: none;
   font-size: 2rem;
+  position: relative;
+  z-index: 1100; /* ensure above fullscreen mobile nav overlay */
 }
 
 .hero {
@@ -119,6 +123,42 @@ nav ul {
   text-align: center;
 }
 
+/* Maintenance overlay for Projects (with message) */
+.projects.maintenance {
+  position: relative;
+}
+
+.projects.maintenance .projects-container,
+.projects.maintenance .project-card {
+  filter: blur(7px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.projects.maintenance::after {
+  content: "Exciting Changes On The Way!";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  max-width: 100%;
+  max-height: 100%;
+  color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.82);
+  border: 2px dashed transparent;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  font-size: clamp(1rem, 3vw, 2rem);
+  text-align: center;
+  z-index: 2;
+}
+
+body.dark-mode .projects.maintenance::after {
+  background: rgba(18, 18, 18, 0.82);
+  border-color: #4b4b4b;
+}
+
 .projects-name  {
   margin: 3rem 0;
 }
@@ -148,6 +188,84 @@ nav ul {
   text-align: center;
 }
 
+/* Dark Mode Toggle (global) */
+.dark-mode-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 3.25rem;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.moon {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.stars {
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+body.dark-mode .moon {
+  transform: rotate(-45deg);
+  opacity: 0;
+}
+
+body.dark-mode .stars {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Dark Mode Colors (global) */
+body.dark-mode {
+  --primary-color: #fff;
+  --secondary-color: #a7551a;
+  --background-color: #121212;
+}
+
+body.dark-mode nav {
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .nav-link,
+body.dark-mode .logo a {
+  color: var(--primary-color);
+}
+
+body.dark-mode .hero h1,
+body.dark-mode .projects-name,
+body.dark-mode .about-me h2,
+body.dark-mode .skill-header,
+body.dark-mode .contact h2,
+body.dark-mode footer {
+  color: var(--primary-color);
+}
+
+body.dark-mode .hero h2,
+body.dark-mode .about-me p,
+body.dark-mode footer a {
+  color: #d3d3d3;
+}
+
+body.dark-mode .project-card {
+  box-shadow: 0 1px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Dark mode disabled: hide toggle and neutralize any residual class */
+.dark-mode-toggle { display: none !important; }
+body.dark-mode {
+  --primary-color: #000;
+  --secondary-color: #ff7235;
+  --background-color: #fff;
+}
+
 .about-me {
   max-width: 800px;
   margin: 0 auto;
@@ -172,7 +290,38 @@ nav ul {
   text-align: center;
 }
 
-.skills-header {
+/* Maintenance overlay for Skills (no text) */
+.skills.maintenance {
+  position: relative;
+}
+
+.skills.maintenance .skills-wrapper {
+  filter: blur(7px);
+  pointer-events: none;
+  user-select: none;
+}
+
+.skills.maintenance::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  background: rgba(255, 255, 255, 0.82);
+  border: 2px dashed transparent;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  z-index: 2;
+}
+
+body.dark-mode .skills.maintenance::after {
+  background: rgba(18, 18, 18, 0.82);
+  border-color: transparent;
+}
+
+.skill-header {
   margin: 4rem 0;
 }
 
@@ -224,10 +373,10 @@ footer {
 .project-card {
   background-color: transparent;
   border-radius: 5px;
-  box-shadow: 0 1px 5px var(primary-shadow);
+  box-shadow: 0 1px 5px var(--primary-shadow);
   padding: 20px;
   margin: 15px;
-  transition: box-shadow 0.3s, ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 .project-card:hover {
@@ -269,13 +418,25 @@ footer {
     flex-direction: column;
   }
 
-  .navigation {
-    display: none;
+  .navigation { display: none; }
+
+  /* Full-screen mobile menu overlay */
+  .navigation.show {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background-color: var(--background-color);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    z-index: 1050;
   }
 
   .burger-menu {
     display: block;
-    color: var(--primary-color)
+    color: var(--primary-color);
   }
 }
 
