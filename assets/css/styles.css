@@ -42,7 +42,7 @@ nav ul {
   list-style: none;
 }
 
-  nav ul li {
+nav ul li {
   font-size: 1rem;
 }
 
@@ -56,7 +56,39 @@ nav ul {
   gap: 1rem;
 }
 
-.nav-link, .logo a {
+/* Theme toggle (desktop inline size similar to nav links) */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.theme-option {
+  appearance: none;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--primary-color);
+  line-height: 1;
+  padding: 0.25rem 0.4rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-option[aria-checked="true"],
+.theme-option:focus-visible {
+  border-color: #bbb;
+  outline: none;
+}
+
+.theme-option svg {
+  display: block;
+  width: 16px; /* match nav link text size */
+  height: 16px;
+}
+
+.nav-link,
+.logo a {
   color: var(--primary-color);
   /* text-transform: uppercase; */
   transition: var(--transition);
@@ -75,6 +107,53 @@ nav ul {
   font-size: 2rem;
   position: relative;
   z-index: 1100; /* ensure above fullscreen mobile nav overlay */
+}
+
+/* CSS-based burger icon */
+.burger-menu {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+}
+
+.burger-menu .burger-lines,
+.burger-menu .burger-lines::before,
+.burger-menu .burger-lines::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 2px;
+  background: var(--primary-color);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.burger-menu .burger-lines {
+  top: 50%;
+}
+
+.burger-menu .burger-lines::before {
+  top: -8px;
+}
+
+.burger-menu .burger-lines::after {
+  top: 8px;
+}
+
+.burger-menu[aria-expanded="true"] .burger-lines {
+  opacity: 0;
+}
+
+.burger-menu[aria-expanded="true"] .burger-lines::before {
+  top: 0;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.burger-menu[aria-expanded="true"] .burger-lines::after {
+  top: 0;
+  transform: translateX(-50%) rotate(-45deg);
 }
 
 .hero {
@@ -99,21 +178,21 @@ nav ul {
 .hero h1 {
   color: var(--primary-color);
   font-weight: 700;
-  text-align: justify;
+  text-align: center;
 }
 
 .hero h2 {
-  color: #4A4A4A;
-  font-weight: 255;
+  color: #4a4a4a;
+  font-weight: 400;
 }
 
-.bio-title h1 {
+.bio-title {
   font-size: 2.75rem;
   margin-bottom: 0.5rem;
 }
 
-.bio-title h2 {
-  color: #4A4A4A;
+.bio h2 {
+  color: #4a4a4a;
   font-size: 2.75rem;
   margin-bottom: 0.5rem;
 }
@@ -123,14 +202,14 @@ nav ul {
   text-align: center;
 }
 
-/* Maintenance overlay for Projects (with message) */
+/* Maintenance overlay for Projects */
 .projects.maintenance {
   position: relative;
 }
 
 .projects.maintenance .projects-container,
 .projects.maintenance .project-card {
-  filter: blur(7px);
+  filter: blur(6px);
   pointer-events: none;
   user-select: none;
 }
@@ -159,7 +238,7 @@ body.dark-mode .projects.maintenance::after {
   border-color: #4b4b4b;
 }
 
-.projects-name  {
+.projects-name {
   margin: 3rem 0;
 }
 
@@ -183,7 +262,9 @@ body.dark-mode .projects.maintenance::after {
   transform: scale(1.05);
 }
 
-.about-me, .skills, .contact {
+.about-me,
+.skills,
+.contact {
   padding: 4rem 2rem;
   text-align: center;
 }
@@ -280,7 +361,7 @@ body.dark-mode {
 
 .about-me p {
   margin-top: 2rem;
-  color: #4A4A4A;
+  color: #4a4a4a;
   line-height: 1.6;
   font-weight: 400;
 }
@@ -296,7 +377,7 @@ body.dark-mode {
 }
 
 .skills.maintenance .skills-wrapper {
-  filter: blur(7px);
+  filter: blur(6px);
   pointer-events: none;
   user-select: none;
 }
@@ -343,12 +424,81 @@ body.dark-mode .skills.maintenance::after {
   transform: scale(1.1);
 }
 
-
 footer {
-  color: #4A4A4A;
+  color: #4a4a4a;
   padding: 2rem;
   background-color: var(--background-color);
   text-align: center;
+}
+
+/* Dark Mode Toggle (global) */
+.dark-mode-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 3.25rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.moon {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.stars {
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+body.dark-mode .moon {
+  transform: rotate(-45deg);
+  opacity: 0;
+}
+
+body.dark-mode .stars {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Dark Mode Colors (global) */
+body.dark-mode {
+  --primary-color: #fff;
+  --secondary-color: #a7551a;
+  --background-color: #121212;
+}
+
+body.dark-mode nav {
+  background-color: #1e1e1e;
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .nav-link,
+body.dark-mode .logo a {
+  color: var(--primary-color);
+}
+
+body.dark-mode .hero h1,
+body.dark-mode .projects-name,
+body.dark-mode .about-me h2,
+body.dark-mode .skill-header,
+body.dark-mode .contact h2,
+body.dark-mode footer {
+  color: var(--primary-color);
+}
+
+body.dark-mode .hero h2,
+body.dark-mode .about-me p,
+body.dark-mode footer a {
+  color: #d3d3d3;
+}
+
+body.dark-mode .project-card {
+  box-shadow: 0 1px 5px rgba(255, 255, 255, 0.2);
 }
 
 /* Other Styles */
@@ -384,7 +534,7 @@ footer {
 }
 
 .scroll-up {
-  position: fixed; 
+  position: fixed;
   right: 1%;
   bottom: 1%;
   cursor: pointer;
@@ -407,7 +557,7 @@ footer {
   }
 
   .hero h2 {
-    color: #4A4A4A;
+    color: #4a4a4a;
   }
 
   .hero-img {
@@ -434,6 +584,28 @@ footer {
     z-index: 1050;
   }
 
+  .navigation.show {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--background-color);
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Theme toggle placement inside mobile dropdown */
+  .navigation.show .theme-toggle {
+    order: 999;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+  .navigation.show .theme-option {
+    padding: 0.25rem 0.35rem;
+  }
+
   .burger-menu {
     display: block;
     color: var(--primary-color);
@@ -451,11 +623,80 @@ footer {
   }
 
   .hero h2 {
-    color: #4A4A4A;
+    color: #4a4a4a;
   }
 
   .project-image {
     max-width: 100%;
   }
 
+  /* Dark Mode Toggle */
+  .dark-mode-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 3.25rem;
+    cursor: pointer;
+    z-index: 1001; /* Ensure it's above everything */
+  }
+
+  .moon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  .stars {
+    font-size: 0.8rem;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  body.dark-mode .moon {
+    transform: rotate(-45deg);
+    opacity: 0;
+  }
+
+  body.dark-mode .stars {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Dark Mode Colors */
+  body.dark-mode {
+    --primary-color: #fff;
+    --secondary-color: #a7551a;
+    --background-color: #121212;
+  }
+
+  body.dark-mode nav {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+  }
+
+  body.dark-mode .nav-link,
+  body.dark-mode .logo a {
+    color: var(--primary-color);
+  }
+
+  body.dark-mode .hero h1,
+  body.dark-mode .projects-name,
+  body.dark-mode .about-me h2,
+  body.dark-mode .skills-header,
+  body.dark-mode .contact h2,
+  body.dark-mode footer {
+    color: var(--primary-color);
+  }
+
+  body.dark-mode .hero h2,
+  body.dark-mode .about-me p,
+  body.dark-mode footer a {
+    color: #d3d3d3;
+  }
+
+  body.dark-mode .project-card {
+    box-shadow: 0 1px 5px rgba(255, 255, 255, 0.2);
+  }
 }

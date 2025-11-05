@@ -4,100 +4,193 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-site-verification" content="rbV81-UZYRIp5hrlrb_syH4PtBTIBmrVNHF3wKMusTA" />
+    <meta
+      name="google-site-verification"
+      content="rbV81-UZYRIp5hrlrb_syH4PtBTIBmrVNHF3wKMusTA"
+    />
+    <meta name="description" content="Designer & developer crafting web and mobile apps and digital experiences in Portland, OR." />
+    <meta property="og:title" content="Tony Martinez | Designer & Developer" />
+    <meta property="og:description" content="Designer & developer crafting web and mobile apps and digital experiences in Portland, OR." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="assets/images/selfport2025.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tony Martinez | Designer & Developer" />
+    <meta name="twitter:description" content="Designer & developer crafting web and mobile apps and digital experiences in Portland, OR." />
+    <meta name="twitter:image" content="assets/images/selfport2025.jpg" />
+    <link rel="preload" as="image" href="assets/images/selfport2025.jpg" imagesrcset="assets/images/selfport2025.jpg 1x" imagesizes="(max-width: 800px) 100vw, 400px" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="icon" href="assets/icons/icons8-trademark-16.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <title>Tony Martinez | Designer & Developer</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <title>Tony Martinez | Designer &amp; Developer</title>
   </head>
   <body>
     <nav>
       <h1 class="logo"><a href="/">TONY M.</a></h1>
-      <ul class="navigation">
+      <ul class="navigation" id="primary-navigation">
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li class="theme-toggle" role="radiogroup" aria-label="Theme">
+          <button class="theme-option" role="radio" aria-checked="false" data-theme="system" title="System" aria-label="System theme">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="12" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2" />
+              <line x1="9" y1="21" x2="15" y2="21" stroke="currentColor" stroke-width="2" />
+              <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="2" />
+            </svg>
+          </button>
+          <button class="theme-option" role="radio" aria-checked="false" data-theme="light" title="Light" aria-label="Light theme">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+              <line x1="12" y1="2" x2="12" y2="6" stroke="currentColor" stroke-width="2" />
+              <line x1="12" y1="18" x2="12" y2="22" stroke="currentColor" stroke-width="2" />
+              <line x1="2" y1="12" x2="6" y2="12" stroke="currentColor" stroke-width="2" />
+              <line x1="18" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="2" />
+              <line x1="4.22" y1="4.22" x2="6.7" y2="6.7" stroke="currentColor" stroke-width="2" />
+              <line x1="17.3" y1="17.3" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" />
+              <line x1="4.22" y1="19.78" x2="6.7" y2="17.3" stroke="currentColor" stroke-width="2" />
+              <line x1="17.3" y1="6.7" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" />
+            </svg>
+          </button>
+          <button class="theme-option" role="radio" aria-checked="false" data-theme="dark" title="Dark" aria-label="Dark theme">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="none" stroke="currentColor" stroke-width="2" />
+            </svg>
+          </button>
+        </li>
       </ul>
-      <button class="burger-menu" id="burger-menu">
-        <ion-icon name="menu-outline"></ion-icon>
+      <button
+        class="burger-menu"
+        id="burger-menu"
+        aria-label="Menu"
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+      >
+        <span class="burger-lines" aria-hidden="true"></span>
       </button>
     </nav>
-    <!-- Dark mode toggle disabled
-    <div class="dark-mode-toggle" aria-label="Toggle dark mode">
-      <div class="moon">🌙</div>
-      <div class="stars">✨</div>
-    </div>
-    -->
+    
     <section class="hero" id="about">
-      <img src="assets/images/selfport2025.jpg" alt="Tony Martinez" class="hero-img" loading="lazy" />
+      <img
+        src="assets/images/selfport2025.jpg"
+        alt="Portrait of Tony Martinez"
+        class="hero-img"
+        width="400"
+        height="500"
+        loading="eager"
+        fetchpriority="high"
+      />
       <div class="bio animate__animated animate__shakeX">
         <h1 class="bio-title">Hi, I'm Tony.</h1>
-        <h2>Designer & Developer</h2>
+        <h2>Designer &amp; Developer</h2>
       </div>
-    </section>
-
-    <section class="spacer">
-      <img src="assets/images/portspacer.jpg" alt="Section Divider" class="section-divider" loading="lazy" />
     </section>
 
     <section class="projects maintenance" id="projects">
       <h2 class="projects-name">Projects</h2>
       <div class="projects-container">
         <div class="project-card">
-          <a href="https://chapgpt-converse-e4wvkw2ko-creativeartsone-gmailcom.vercel.app/" target="_blank">
-            <img src="assets/images/cta1-pro1.jpg" alt="ChatGPT Clone" class="project-image" loading="lazy" />
+          <a
+            href="https://chapgpt-converse-e4wvkw2ko-creativeartsone-gmailcom.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="assets/images/cta1-pro1.jpg"
+              alt="ChatGPT Clone"
+              class="project-image"
+              loading="lazy"
+            />
           </a>
         </div>
         <div class="project-card">
-          <a href="assets/images/alpenrose-proedit3.jpg" target="_blank">
-            <img src="assets/images/cta2-pro2.jpg" alt="Alpenrose Logo" class="project-image" loading="lazy" />
+          <a
+            href="assets/images/alpenrose-proedit3.jpg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="assets/images/cta2-pro2.jpg"
+              alt="Alpenrose Logo"
+              class="project-image"
+              loading="lazy"
+            />
           </a>
         </div>
         <div class="project-card">
-          <a href="assets/images/portredes.png" target="_blank">
-            <img src="assets/images/cta-pro3.jpg" alt="Figma Image" class="project-image" loading="lazy" />
+          <a
+            href="assets/images/portredes.png"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="assets/images/cta-pro3.jpg"
+              alt="Figma Image"
+              class="project-image"
+              loading="lazy"
+            />
           </a>
         </div>
       </div>
       <div class="project-card">
-          <a href="" target="_blank">
-            <img src="assets/images/EcommApp.png" alt="Figma Image" class="project-image" loading="lazy" />
-          </a>
-        </div>
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          <img
+            src="assets/images/EcommApp.png"
+            alt="Figma Image"
+            class="project-image"
+            loading="lazy"
+          />
+        </a>
       </div>
-    </section>
-
-    <section class="spacer">
-      <img src="assets/images/portspacer.jpg" alt="Section Divider" class="section-divider" loading="lazy" />
     </section>
 
     <section class="about-me">
       <h2>About Me</h2>
       <p>
-        I'm Tony Martinez, a designer and developer based in Portland, OR. I focus on building unique, problem-solving web and mobile applications and creating eye-catching digital experiences.
+        I'm Tony Martinez, a designer and developer based in Portland, OR. I
+        focus on building unique, problem-solving web and mobile applications
+        and creating eye-catching digital experiences.
       </p>
-    </section>
-
-    <section class="spacer">
-      <img src="assets/images/portspacer.jpg" alt="Section Divider" class="section-divider" loading="lazy" />
     </section>
 
     <section class="skills maintenance" id="skills">
       <h2 class="skill-header">Skills</h2>
       <div class="skills-wrapper">
-        <img src="assets/icons/icons8-javascript-150.png" alt="JavaScript" class="icon" loading="lazy" />
-        <img src="assets/icons/icons8-python-150.png" alt="Python" class="icon" loading="lazy" />
-        <img src="assets/icons/icons8-react-200.png" alt="React" class="icon" loading="lazy" />
-        <img src="assets/icons/icons8-html-5.png" alt="HTML5" class="icon" loading="lazy" />
+        <img
+          src="assets/icons/icons8-javascript-150.png"
+          alt="JavaScript"
+          class="icon"
+          loading="lazy"
+        />
+        <img
+          src="assets/icons/icons8-python-150.png"
+          alt="Python"
+          class="icon"
+          loading="lazy"
+        />
+        <img
+          src="assets/icons/icons8-react-200.png"
+          alt="React"
+          class="icon"
+          loading="lazy"
+        />
+        <img
+          src="assets/icons/icons8-html-5.png"
+          alt="HTML5"
+          class="icon"
+          loading="lazy"
+        />
       </div>
-    </section>
-
-    <section class="spacer">
-      <img src="assets/images/portspacer.jpg" alt="Section Divider" class="section-divider" loading="lazy" />
     </section>
 
     <section class="contact" id="contact">
@@ -105,11 +198,17 @@
     </section>
 
     <footer>
-      <p>&copy; Tony Martinez 2025 | <a href="https://www.linkedin.com/in/tonymart/" target="_blank">LinkedIn</a></p>
+      <p>
+        &copy; Tony Martinez 2025 |
+        <a
+          href="https://www.linkedin.com/in/tonymart/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >LinkedIn</a
+        >
+      </p>
     </footer>
 
     <script src="assets/js/app.js" defer></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   </body>
 </html>

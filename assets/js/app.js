@@ -1,18 +1,18 @@
 // Nav hamburgermenu selections
 const burger = document.querySelector("#burger-menu");
-const ul = document.querySelector("nav ul");
+const ul = document.querySelector("#primary-navigation");
 const nav = document.querySelector("nav");
 const darkModeToggle = document.querySelector('.dark-mode-toggle');
 const body = document.body;
 
-//CSS Animate on Scroll fuctionality
+// CSS Animate on Scroll fuctionality
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     // console.log(entry)
     if (entry.isIntersecting) {
       entry.target.classList.add('show');
     } else {
-        entry.target.classList.remove('show');
+      entry.target.classList.remove('show');
     }
   });
 });
@@ -26,13 +26,18 @@ const scrollUp = document.querySelector("#scroll-up");
 // Select nav links
 const navLink = document.querySelectorAll(".nav-link");
 
-// hamburger menu functionality 
+// hamburger menu functionality + ARIA state
 burger.addEventListener("click", () => {
+  const expanded = burger.getAttribute("aria-expanded") === "true";
+  burger.setAttribute("aria-expanded", String(!expanded));
   ul.classList.toggle("show");
-  const icon = burger.querySelector('ion-icon');
-  const isOpen = ul.classList.contains('show');
-  if (icon) {
-    icon.setAttribute('name', isOpen ? 'close-outline' : 'menu-outline');
+  if (!expanded) {
+    // Move focus to first nav link when menu opens
+    const firstLink = ul.querySelector(".nav-link");
+    if (firstLink) firstLink.focus();
+  } else {
+    // Return focus to burger when closing
+    burger.focus();
   }
 });
 
@@ -40,14 +45,36 @@ burger.addEventListener("click", () => {
 navLink.forEach((link) =>
   link.addEventListener("click", () => {
     ul.classList.remove("show");
-    const icon = burger.querySelector('ion-icon');
-    if (icon) {
-      icon.setAttribute('name', 'menu-outline');
-    }
+    burger.setAttribute("aria-expanded", "false");
   })
-);  
+);
 
-// Scroll to Top Functionality (guard if element exists)
+// Basic keyboard handling: close on Escape, trap focus when open
+document.addEventListener("keydown", (e) => {
+  const isOpen = ul.classList.contains("show");
+  if (!isOpen) return;
+  if (e.key === "Escape") {
+    ul.classList.remove("show");
+    burger.setAttribute("aria-expanded", "false");
+    burger.focus();
+    return;
+  }
+  if (e.key === "Tab") {
+    const focusable = ul.querySelectorAll('a[href], button:not([disabled])');
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    } else if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    }
+  }
+});
+
+// Scroll to Top Functionality
 if (scrollUp) {
   scrollUp.addEventListener("click", () => {
     window.scrollTo({
@@ -58,21 +85,46 @@ if (scrollUp) {
   });
 }
 
-// Dark Mode Functionality (toggle + persisted preference)
-if (darkModeToggle) {
-  const persisted = localStorage.getItem('darkMode');
-  if (persisted === 'enabled') {
-    body.classList.add('dark-mode');
-  } else if (persisted === 'disabled') {
-    body.classList.remove('dark-mode');
-  } else {
-    // Default to system preference
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (prefersDark) body.classList.add('dark-mode');
-  }
+// Dark Mode Functionality
+const darkModeToggle = document.querySelector('.dark-mode-toggle');
+const body = document.body;
 
-  darkModeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    localStorage.setItem('darkMode', body.classList.contains('dark-mode') ? 'enabled' : 'disabled');
+// Replace old toggle with inline theme options in nav
+const themeToggleGroup = document.querySelector('.theme-toggle');
+const themeButtons = document.querySelectorAll('.theme-option');
+
+// Apply saved theme or system on load
+const savedTheme = localStorage.getItem('theme') || 'system';
+applyTheme(savedTheme);
+updateThemeAria(savedTheme);
+
+themeButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const value = btn.getAttribute('data-theme');
+    applyTheme(value);
+    localStorage.setItem('theme', value);
+    updateThemeAria(value);
   });
+});
+
+function updateThemeAria(active) {
+  themeButtons.forEach((btn) => {
+    const value = btn.getAttribute('data-theme');
+    btn.setAttribute('aria-checked', String(value === active));
+  });
+}
+
+function applyTheme(value) {
+  // Remove explicit class first
+  body.classList.remove('dark-mode');
+  // system = follow prefers-color-scheme, light = remove dark, dark = add dark
+  if (value === 'dark') {
+    body.classList.add('dark-mode');
+  } else if (value === 'system') {
+    // Evaluate current system preference
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDark) {
+      body.classList.add('dark-mode');
+    }
+  }
 }
