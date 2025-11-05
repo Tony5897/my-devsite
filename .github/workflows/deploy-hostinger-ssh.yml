@@ -53,5 +53,10 @@ jobs:
             TARGET_DIR=${{ secrets.HOSTINGER_TARGET_DIR && format('{0}', secrets.HOSTINGER_TARGET_DIR) || '/home/u563366180/public_html' }}
             ls -la "$TARGET_DIR"
             test -f "$TARGET_DIR/index.html"
+            echo "--- server index.html (first 40 lines) ---"
+            sed -n '1,40p' "$TARGET_DIR/index.html" || true
+            echo "--- grep overlays ---"
+            grep -n "projects maintenance" "$TARGET_DIR/index.html" || true
+            grep -n "skills maintenance" "$TARGET_DIR/index.html" || true
 
 
