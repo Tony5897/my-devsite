@@ -38,8 +38,15 @@ jobs:
           port: ${{ secrets.HOSTINGER_PORT }}
           script: |
             set -e
-            cd /home/u563366180/public_html/my-devsite
-            git status
+            TARGET_DIR=${{ secrets.HOSTINGER_TARGET_DIR && format('"{0}"', secrets.HOSTINGER_TARGET_DIR) || '"/home/u563366180/public_html"' }}
+            echo "Target directory: $TARGET_DIR"
+            cd "$TARGET_DIR"
+            if [ ! -d .git ]; then
+              echo "ERROR: $TARGET_DIR is not a git repository. Your domain likely serves static files here without git. Either initialize a repo here or switch to an SCP upload workflow." >&2
+              exit 1
+            fi
+            git status || true
+            git remote -v || true
             git fetch origin main
             git reset --hard origin/main
             git rev-parse HEAD
