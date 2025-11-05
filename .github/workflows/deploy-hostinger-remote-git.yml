@@ -40,8 +40,18 @@ jobs:
           key: ${{ secrets.HOSTINGER_SSH_KEY }}
           port: ${{ secrets.HOSTINGER_PORT }}
           script: |
-            cd /home/u563366180/public_html/my-devsite
-            git pull origin main
+            set -e
+            export TARGET_DIR=/home/u563366180/public_html/my-devsite
+            mkdir -p ~/.ssh
+            ssh-keyscan -H github.com >> ~/.ssh/known_hosts 2>/dev/null || true
+            git config --global --add safe.directory "$TARGET_DIR" || true
+            cd "$TARGET_DIR"
+            # Ensure remote uses SSH (avoids https credential prompt)
+            git remote set-url origin git@github.com:Tony5897/my-devsite.git || true
+            git remote -v
+            GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=no' git fetch origin main
+            git reset --hard origin/main
+            git rev-parse HEAD
 
       - name: Verify Deployment
         if: success()
