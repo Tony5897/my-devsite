@@ -1,6 +1,6 @@
 // Nav hamburgermenu selections
 const burger = document.querySelector("#burger-menu");
-const ul = document.querySelector("#primary-navigation");
+const ul = document.querySelector("nav ul");
 const nav = document.querySelector("nav");
 const darkModeToggle = document.querySelector('.dark-mode-toggle');
 const body = document.body;
@@ -85,45 +85,35 @@ if (scrollUp) {
   });
 }
 
-// Dark Mode Functionality
-const darkModeToggle = document.querySelector('.dark-mode-toggle');
-const body = document.body;
-
-// Replace old toggle with inline theme options in nav
+// Dark Mode disabled: force light and noop theme logic when no toggle present
 const themeToggleGroup = document.querySelector('.theme-toggle');
 const themeButtons = document.querySelectorAll('.theme-option');
-
-// Apply saved theme or system on load
-const savedTheme = localStorage.getItem('theme') || 'system';
-applyTheme(savedTheme);
-updateThemeAria(savedTheme);
-
-themeButtons.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const value = btn.getAttribute('data-theme');
-    applyTheme(value);
-    localStorage.setItem('theme', value);
-    updateThemeAria(value);
-  });
-});
-
-function updateThemeAria(active) {
-  themeButtons.forEach((btn) => {
-    const value = btn.getAttribute('data-theme');
-    btn.setAttribute('aria-checked', String(value === active));
-  });
-}
-
-function applyTheme(value) {
-  // Remove explicit class first
+if (!themeToggleGroup) {
+  localStorage.setItem('theme', 'light');
   body.classList.remove('dark-mode');
-  // system = follow prefers-color-scheme, light = remove dark, dark = add dark
-  if (value === 'dark') {
-    body.classList.add('dark-mode');
-  } else if (value === 'system') {
-    // Evaluate current system preference
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (prefersDark) {
+} else {
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  applyTheme(savedTheme);
+  updateThemeAria(savedTheme);
+  themeButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const value = btn.getAttribute('data-theme');
+      applyTheme(value);
+      localStorage.setItem('theme', value);
+      updateThemeAria(value);
+    });
+  });
+
+  function updateThemeAria(active) {
+    themeButtons.forEach((btn) => {
+      const value = btn.getAttribute('data-theme');
+      btn.setAttribute('aria-checked', String(value === active));
+    });
+  }
+
+  function applyTheme(value) {
+    body.classList.remove('dark-mode');
+    if (value === 'dark') {
       body.classList.add('dark-mode');
     }
   }

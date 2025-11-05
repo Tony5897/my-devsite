@@ -198,6 +198,7 @@ nav ul li {
 }
 
 .projects {
+  color: #4a4a4a;
   padding: 4rem 2rem;
   text-align: center;
 }
@@ -209,7 +210,7 @@ nav ul li {
 
 .projects.maintenance .projects-container,
 .projects.maintenance .project-card {
-  filter: blur(6px);
+  filter: blur(7px);
   pointer-events: none;
   user-select: none;
 }
@@ -225,7 +226,6 @@ nav ul li {
   max-height: 100%;
   color: var(--primary-color);
   background: rgba(255, 255, 255, 0.82);
-  border: 2px dashed transparent;
   border-radius: 12px;
   padding: 3rem 2rem;
   font-size: clamp(1rem, 3vw, 2rem);
@@ -367,6 +367,7 @@ body.dark-mode {
 }
 
 .skills {
+  color: #4a4a4a;
   padding: 4rem 2rem;
   text-align: center;
 }
@@ -377,7 +378,7 @@ body.dark-mode {
 }
 
 .skills.maintenance .skills-wrapper {
-  filter: blur(6px);
+  filter: blur(7px);
   pointer-events: none;
   user-select: none;
 }
@@ -584,23 +585,14 @@ body.dark-mode .project-card {
     z-index: 1050;
   }
 
-  .navigation.show {
-    display: flex;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: var(--background-color);
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+  /* Removed legacy dropdown; fullscreen overlay above supersedes */
 
-  /* Theme toggle placement inside mobile dropdown */
+  /* Theme toggle placement inside mobile full-screen menu */
   .navigation.show .theme-toggle {
     order: 999;
-    align-self: flex-start;
-    margin-top: 0.5rem;
+    align-self: center;
+    justify-content: center;
+    margin-top: 2rem;
   }
   .navigation.show .theme-option {
     padding: 0.25rem 0.35rem;
