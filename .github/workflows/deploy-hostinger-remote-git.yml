@@ -1,4 +1,4 @@
-name: Deploy to Hostinger (remote git pull)
+name: Deploy to Hostinger
 
 on:
   push:
@@ -7,21 +7,24 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+  actions: read
 
 jobs:
   deploy:
     name: Deploy to Production
     runs-on: ubuntu-latest
+    
     concurrency:
-      group: hostinger-remote-git-${{ github.ref }}
+      group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true
+    
     steps:
-      - name: Checkout (for completeness)
+      - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
+          
       - name: Setup SSH
         uses: shimataro/ssh-key-action@v2
         with:
@@ -29,7 +32,7 @@ jobs:
           known_hosts: unnecessary
           if_key_exists: replace
 
-      - name: Deploy via SSH (git pull on server)
+      - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOSTINGER_HOST }}
@@ -37,18 +40,19 @@ jobs:
           key: ${{ secrets.HOSTINGER_SSH_KEY }}
           port: ${{ secrets.HOSTINGER_PORT }}
           script: |
-            set -e
-            TARGET_DIR=${{ secrets.HOSTINGER_TARGET_DIR && format('"{0}"', secrets.HOSTINGER_TARGET_DIR) || '"/home/u563366180/public_html"' }}
-            echo "Target directory: $TARGET_DIR"
-            cd "$TARGET_DIR"
-            if [ ! -d .git ]; then
-              echo "ERROR: $TARGET_DIR is not a git repository. Your domain likely serves static files here without git. Either initialize a repo here or switch to an SCP upload workflow." >&2
-              exit 1
-            fi
-            git status || true
-            git remote -v || true
-            git fetch origin main
-            git reset --hard origin/main
+            cd /home/u563366180/public_html/my-devsite
+            git pull origin main
+
+      - name: Verify Deployment
+        if: success()
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USERNAME }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY }}
+          port: ${{ secrets.HOSTINGER_PORT }}
+          script: |
+            cd /home/u563366180/public_html/my-devsite
             git rev-parse HEAD
 
 
