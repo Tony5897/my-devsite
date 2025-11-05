@@ -1,10 +1,6 @@
 name: Deploy to Hostinger via FTP
 
 on:
-  push:
-    branches:
-      - main
-      - feature/test-environment
   workflow_dispatch:
 
 jobs:

@@ -1,0 +1,56 @@
+name: Deploy to Hostinger (SSH)
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Upload site via SCP
+    runs-on: ubuntu-latest
+    concurrency:
+      group: hostinger-ssh-deploy-${{ github.ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Upload files (SCP)
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USERNAME }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY }}
+          port: ${{ secrets.HOSTINGER_PORT }}
+          source: ./
+          target: ${{ secrets.HOSTINGER_TARGET_DIR }}
+          overwrite: true
+          strip_components: 0
+          rm: false
+          exclude: |
+            .git*
+            .github/**
+            node_modules/**
+            **/.DS_Store
+            **/*.md
+
+      - name: Verify deployment
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USERNAME }}
+          key: ${{ secrets.HOSTINGER_SSH_KEY }}
+          port: ${{ secrets.HOSTINGER_PORT }}
+          script: |
+            set -e
+            ls -la "${{ secrets.HOSTINGER_TARGET_DIR }}"
+            test -f "${{ secrets.HOSTINGER_TARGET_DIR }}/index.html"
+
+
