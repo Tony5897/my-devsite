@@ -41,7 +41,7 @@ jobs:
           port: ${{ secrets.HOSTINGER_PORT }}
           script: |
             set -e
-            export TARGET_DIR=/home/u563366180/public_html/my-devsite
+            export TARGET_DIR=/home/u563366180/public_html
             mkdir -p ~/.ssh
             ssh-keyscan -H github.com >> ~/.ssh/known_hosts 2>/dev/null || true
             git config --global --add safe.directory "$TARGET_DIR" || true
