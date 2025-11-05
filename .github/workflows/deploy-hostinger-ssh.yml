@@ -30,7 +30,7 @@ jobs:
           key: ${{ secrets.HOSTINGER_SSH_KEY }}
           port: ${{ secrets.HOSTINGER_PORT && secrets.HOSTINGER_PORT || 22 }}
           source: ./
-          target: ${{ secrets.HOSTINGER_TARGET_DIR && secrets.HOSTINGER_TARGET_DIR || '/home/u563366180/public_html/my-devsite' }}
+          target: ${{ secrets.HOSTINGER_TARGET_DIR && secrets.HOSTINGER_TARGET_DIR || '/home/u563366180/public_html' }}
           overwrite: true
           strip_components: 0
           rm: false
@@ -50,7 +50,7 @@ jobs:
           port: ${{ secrets.HOSTINGER_PORT && secrets.HOSTINGER_PORT || 22 }}
           script: |
             set -e
-            TARGET_DIR=${{ secrets.HOSTINGER_TARGET_DIR && format('{0}', secrets.HOSTINGER_TARGET_DIR) || '/home/u563366180/public_html/my-devsite' }}
+            TARGET_DIR=${{ secrets.HOSTINGER_TARGET_DIR && format('{0}', secrets.HOSTINGER_TARGET_DIR) || '/home/u563366180/public_html' }}
             ls -la "$TARGET_DIR"
             test -f "$TARGET_DIR/index.html"
 
