@@ -51,7 +51,10 @@ jobs:
             git remote -v
             GIT_SSH_COMMAND='ssh -o StrictHostKeyChecking=no' git fetch origin main
             git reset --hard origin/main
-            git rev-parse HEAD
+            echo "Deployed commit:" && git log -1 --oneline
+            echo "Index head snippet:" && sed -n '1,40p' index.html || true
+            echo "Check overlays present:" && grep -n "projects maintenance" index.html || true
+            grep -n "skills maintenance" index.html || true
 
       - name: Verify Deployment
         if: success()
