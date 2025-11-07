@@ -420,7 +420,7 @@ body.dark-mode .skills.maintenance::after {
   margin-top: 2.25rem;
 }
 
-.contact-maintenance h2 {
+.contact-maintenance {
   color:#4a4a4a;
   padding: 4rem 2rem;
   text-align: center;
