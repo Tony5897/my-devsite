@@ -1,57 +1,25 @@
 # my-devsite (Legacy Portfolio)
 
-Legacy portfolio site and deployment configuration (archived). This repository is retained as a reference for a prior production setup and is no longer actively maintained.
+This repository contains an archived version of an earlier personal portfolio site built with static HTML, CSS, and JavaScript.
 
-## Overview
+## Status
 
-- Static site portfolio (HTML/CSS/JS)
-- Automated production deploy via GitHub Actions to a hosting provider (Hostinger)
-- Optional GitHub Pages workflow for preview/testing
+This project is no longer actively maintained and is preserved only as a legacy reference.
 
-## Deployment (High Level)
+## Current Portfolio
 
-This repo is configured to deploy automatically on pushes to the `main` branch using GitHub Actions.
+Visit my current portfolio here:
 
-### Workflows
+**https://www.tonymartinez.tech**
 
-- **Production deploy (SSH/SCP upload)**
-  - Workflow: `.github/workflows/deploy-hostinger-ssh.yml`
-  - Trigger: push to `main` (also supports manual `workflow_dispatch`)
-  - Uses repository secrets for authentication (no credentials are stored in the repo)
+## Notes
 
-- **Production deploy (remote git pull/reset)**
-  - Workflow: `.github/workflows/deploy-hostinger-remote-git.yml`
-  - Trigger: push to `main` (optional fallback)
-  - Performs a server-side update using git commands
+- Legacy static portfolio implementation
+- Retained for historical/reference purposes
+- Not the current source of truth for my professional site
 
-- **GitHub Pages (preview only)**
-  - Workflow: `.github/workflows/deploy.yml`
-  - Trigger: manual only (`workflow_dispatch`)
-  - Does not affect production hosting
+## Tech
 
-## Required Secrets (GitHub Actions)
-
-Set these in: **Repository → Settings → Secrets and variables → Actions**
-
-- `HOSTINGER_HOST`
-- `HOSTINGER_PORT`
-- `HOSTINGER_USERNAME`
-- `HOSTINGER_SSH_KEY`
-
-Optional (only if an FTP-based workflow is enabled):
-
-- `FTP_HOST`
-- `FTP_USERNAME`
-- `FTP_PASSWORD`
-- `FTP_PORT`
-
-> Never commit credentials, private keys, or `.env` files to the repository.
-
-## Deploy Process
-
-Push to `main`:
-
-```bash
-git checkout main
-git pull origin main --ff-only
-git push origin main
+- HTML
+- CSS
+- JavaScript
